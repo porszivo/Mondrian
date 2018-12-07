@@ -1,18 +1,16 @@
 import java.awt.*;
 import java.util.LinkedList;
 
-public class CPU extends Player {
+public class Cpu extends Player {
 
-    private final Color color = Color.RED;
-    private int x,y,s;
-    public int d = 8;
-    public final int diff = 150; /** Difficult level */
+    private int x, y, s;
+    private int d = 8;
 
-    public CPU() {
+    Cpu() {
         super(Color.RED);
         this.s = 12;
-        this.x = 100 - (s/2);
-        this.y = 100 - (s/2);
+        this.x = 100 - (s / 2);
+        this.y = 100 - (s / 2);
     }
 
     @Override
@@ -23,18 +21,18 @@ public class CPU extends Player {
     /**
      * This function is to calculates the middle of the player
      *
-     * @return  Pair    The middle pair of the shape
+     * @return Pair    The middle pair of the shape
      */
     @Override
     public Pair calcMid() {
-        int tX = (this.x+(this.s+1)/2)-1;
-        int tY = (this.s+(s+1)/2)-1;
+        int tX = (this.x + (this.s + 1) / 2) - 1;
+        int tY = (this.s + (s + 1) / 2) - 1;
 
         return new Pair(tX, tY);
     }
 
     /**
-     * @param g2
+     * @param g2 graphics2d
      */
     @Override
     public void draw(Graphics2D g2) {
@@ -42,8 +40,8 @@ public class CPU extends Player {
     }
 
     /**
-     * @param g2
-     * @param color
+     * @param g2    graphics2d
+     * @param color color to be set
      */
     @Override
     public void setColor(Graphics2D g2, Color color) {
@@ -54,26 +52,25 @@ public class CPU extends Player {
 
 
     /**
-     * CPU movement differs from the Players movement
-     * the CPU can move in all 8 directions and will change his direction
+     * Cpu movement differs from the Players movement
+     * the Cpu can move in all 8 directions and will change his direction
      * according to the players position.
      * This direction will be stored in the d variable of this class
      *
-     * @param p
+     * @param player player to change direction
      */
     @Override
-    public void changeDirection(Player p) {
-        int r = (int)((Math.random()) * diff + 1);
-        if(r==1) {
-            /** Doing some math here
-             *  the result is always a direction from 1 to 8
-             */
+    public void changeDirection(Player player) {
+        int diff = 150;
+        int r = (int) ((Math.random()) * diff + 1);
+        if (r == 1) {
+            // the result is always a direction from 1 to 8
             int dX = 5;
             int dY = 0;
-            if(p.getX()>this.getX()) dX = 6;
-            if(p.getX()<this.getX()) dX = 4;
-            if(p.getY()>this.getY()) dY = -3;
-            if(p.getY()<this.getY()) dY = 3;
+            if (player.getX() > this.getX()) dX = 6;
+            if (player.getX() < this.getX()) dX = 4;
+            if (player.getY() > this.getY()) dY = -3;
+            if (player.getY() < this.getY()) dY = 3;
             d = dX + dY;
         }
         this.move(d);
@@ -83,57 +80,72 @@ public class CPU extends Player {
      * This is the moveOperation, depending on which direction is pressed
      * It will also store the Pair of the last Coords in the path
      *
-     * @param d     Direction:
-     *              It is build like the numPad
-     *              7**8**9
-     *              4*****6
-     *              1**2**3
-     *
+     * @param d Direction:
+     *          It is build like the numPad
+     *          7**8**9
+     *          4*****6
+     *          1**2**3
      **/
     @Override
     public void move(int d) {
-        if(d == 1) {
-            x = x-1;
-            y = y+1;
-        }
-        if(d == 2) {
-            y += 1;
-        }
-        if(d == 3) {
-            x += 1;
-            y += 1;
-        }
-        if(d == 4) {
-            x -= 1;
-        }
-        if(d == 6) {
-            x += 1;
-        }
-        if(d == 7) {
-            x -= 1;
-            y -= 1;
-        }
-        if(d == 8) {
-            y -= 1;
-        }
-        if(d == 9) {
-            x += 1;
-            y -= 1;
+        switch (d) {
+            case 1:
+                x -= 1;
+                y += 1;
+                break;
+            case 2:
+                y += 1;
+                break;
+            case 3:
+                x += 1;
+                y += 1;
+                break;
+            case 4:
+                x -= 1;
+                break;
+            case 6:
+                x += 1;
+                break;
+            case 7:
+                x -= 1;
+                y -= 1;
+                break;
+            case 8:
+                y -= 1;
+                break;
+            case 9:
+                x += 1;
+                y -= 1;
+                break;
         }
         this.d = d;
 
     }
 
     @Override
-    public int getX() { return x; }
+    public int getX() {
+        return x;
+    }
+
     @Override
-    public int getY() { return y; }
+    public int getY() {
+        return y;
+    }
+
     @Override
-    public int getS() { return s; }
+    public int getS() {
+        return s;
+    }
+
     @Override
-    public int getD() { return d; }
+    public int getD() {
+        return d;
+    }
+
     @Override
-    public void setD(int d) { this.d = d; }
+    public void setD(int d) {
+        this.d = d;
+    }
 
     @Override
     public LinkedList<Pair> getPath() {
@@ -141,7 +153,8 @@ public class CPU extends Player {
     }
 
     @Override
-    public void clearPath() {    }
+    public void clearPath() {
+    }
 
     @Override
     public boolean getTop() {
@@ -154,7 +167,8 @@ public class CPU extends Player {
     }
 
     @Override
-    public void deleteLoop(Pair a) {    }
+    public void deleteLoop(Pair a) {
+    }
 
 
 }

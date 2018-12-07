@@ -1,8 +1,8 @@
 /**
  * This class represents the player
- * Human and CPU
+ * Human and Cpu
  *
- * @author Marcel Kießling 1052167
+ * @author Marcel Kieï¿½ling 1052167
  * @version 1.0
  */
 
