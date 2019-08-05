@@ -1,4 +1,4 @@
-/**
+package org.justclick.mki; /**
  * This class represents the player
  * Human and Cpu
  *
@@ -139,7 +139,6 @@ public class Human extends Player {
         return 0;
     }
 
-    @Override
     void setD(int d) {
 
     }

@@ -1,3 +1,5 @@
+package org.justclick.mki;
+
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -142,7 +144,6 @@ public class Cpu extends Player {
         return d;
     }
 
-    @Override
     public void setD(int d) {
         this.d = d;
     }

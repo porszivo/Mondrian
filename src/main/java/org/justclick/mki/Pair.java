@@ -1,3 +1,5 @@
+package org.justclick.mki;
+
 import java.awt.*;
 
 /**
