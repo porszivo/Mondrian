@@ -1,7 +1,7 @@
 package org.justclick.mki;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.EventQueue;
 
 public class Mondrian extends JFrame {
 

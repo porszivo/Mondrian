@@ -1,6 +1,6 @@
 package org.justclick.mki;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 /**
  * Helperclass to represent a pair of coordinates
@@ -10,7 +10,8 @@ import java.awt.*;
  */
 class Pair {
 
-    int x, y;
+    private int x;
+    private int y;
 
     Pair(int x, int y) {
         this.x = x;

@@ -1,7 +1,9 @@
 package org.justclick.mki;
 
-import java.awt.*;
-import java.util.LinkedList;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.util.List;
 
 /**
  * This class represents the abstract player class
@@ -49,7 +51,7 @@ public abstract class Player {
 
     abstract int getD();
 
-    public abstract LinkedList<Pair> getPath();
+    public abstract List<Pair> getPath();
 
     public abstract void clearPath();
 
